@@ -1,0 +1,13 @@
+.navItem {
+  margin: 15px;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  color: rgb(217, 0, 255);
+}
+
+.navItem:hover {
+  color: rgb(236, 139, 253);
+}

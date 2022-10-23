@@ -1,5 +1,7 @@
 import { getTrends } from 'fetchAPI';
 import { useState, useEffect } from 'react';
+import { FilmsList } from 'components/FilmsList/FilmsList';
+
 export const Home = () => {
   const [films, setFilms] = useState([]);
 
@@ -10,7 +12,5 @@ export const Home = () => {
     getFilms();
   }, []);
 
-  return (
-    <ul>{films && films.map(e => <li key={e.id}>{e.title || e.name}</li>)}</ul>
-  );
+  return <FilmsList films={films} />;
 };

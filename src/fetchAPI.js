@@ -12,13 +12,13 @@ export const getSearch = async query => {
 };
 
 export const getMovieDetails = async id => {
-  return (await axios.get(`/search/movie/${id}`)).data;
+  return (await axios.get(`/movie/${id}`)).data;
 };
 
 export const getMovieCredits = async id => {
-  return (await axios.get(`/search/movie/${id}/credits`)).data;
+  return (await axios.get(`/movie/${id}/credits`)).data;
 };
 
 export const getMovieReviews = async id => {
-  return (await axios.get(`/search/movie/${id}/reviews`)).data;
+  return (await axios.get(`/movie/${id}/reviews`)).data;
 };
