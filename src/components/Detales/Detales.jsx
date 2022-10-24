@@ -1,5 +1,16 @@
-import { useLocation, Link, Outlet } from 'react-router-dom';
-import { DetalesConrainer, GoBack } from './Detales.styled';
+import { useLocation, Outlet } from 'react-router-dom';
+import {
+  DetalesConrainer,
+  GoBack,
+  FilmTitle,
+  Decription,
+  UserScore,
+  SubTitle,
+  ExtraDataList,
+  ExtraDataItem,
+  ExtraDataLink,
+} from './Detales.styled';
+import { BsArrow90DegLeft } from 'react-icons/bs';
 
 export const Detales = ({ data }) => {
   const location = useLocation();
@@ -26,33 +37,35 @@ export const Detales = ({ data }) => {
   const comeBack = location.state.from || '/';
   return (
     <div>
-      <GoBack to={comeBack}>Go back</GoBack>
+      <GoBack to={comeBack}>
+        <BsArrow90DegLeft size={15} color={'gray'} /> Go back
+      </GoBack>
       <DetalesConrainer>
         <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt="" />
-        <div>
-          <h1>
+        <Decription>
+          <FilmTitle>
             {original_title || original_name}
             {` (${getYear(release_date)})`}
-          </h1>
-          <span>User score: {parseInt(vote_average * 10)}%</span>
-          <h2>Overview</h2>
+          </FilmTitle>
+          <UserScore>User score: {parseInt(vote_average * 10)}%</UserScore>
+          <SubTitle>Overview</SubTitle>
           <span>{overview}</span>
-          <h2>Genres</h2>
+          <SubTitle>Genres</SubTitle>
           <span>{genres.length > 0 && getGenres(genres)}</span>
-        </div>
+        </Decription>
       </DetalesConrainer>
-      <ul>
-        <li>
-          <Link to="cast" state={{ from: comeBack }}>
-            link to cast
-          </Link>
-        </li>
-        <li>
-          <Link to="reviews" state={{ from: comeBack }}>
-            link to reviews
-          </Link>
-        </li>
-      </ul>
+      <ExtraDataList>
+        <ExtraDataItem>
+          <ExtraDataLink to="cast" state={{ from: comeBack }}>
+            Cast
+          </ExtraDataLink>
+        </ExtraDataItem>
+        <ExtraDataItem>
+          <ExtraDataLink to="reviews" state={{ from: comeBack }}>
+            Reviews
+          </ExtraDataLink>
+        </ExtraDataItem>
+      </ExtraDataList>
       <Outlet />
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getMovieReviews } from 'fetchAPI';
 import { useParams } from 'react-router-dom';
+import { ReviewersList, Reviewer } from './Reviewers.styled';
 
 export const Reviewers = () => {
   const [reviewers, setReviewers] = useState({});
@@ -15,14 +16,14 @@ export const Reviewers = () => {
   return (
     <>
       {reviewers.length > 0 ? (
-        <ul>
+        <ReviewersList>
           {reviewers.map(({ id, author, content }) => (
             <li key={id}>
-              <h3>Author: {author}</h3>
-              <p>{content}</p>
+              <Reviewer>Reviewer: {author}</Reviewer>
+              <p>"{content}"</p>
             </li>
           ))}
-        </ul>
+        </ReviewersList>
       ) : (
         <p>Sorry, we have no results!!!</p>
       )}

@@ -4,6 +4,8 @@ import { getSearch } from 'fetchAPI';
 import { FilmsList } from 'components/FilmsList/FilmsList';
 import { useSearchParams } from 'react-router-dom';
 
+import { Form, Input, Submit } from './Movies.styled';
+
 export const Movies = () => {
   const [query, setQuery] = useState();
   const [films, setFilms] = useState([]);
@@ -37,15 +39,27 @@ export const Movies = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <input
+      <Form onSubmit={onSubmit}>
+        {/* <input
           type="text"
           value={searchParams.get('name') || ''}
           name="search"
           onChange={onChange}
         />
-        <button>Search</button>
-      </form>
+        <button>Search</button> */}
+        <Input
+          id="outlined-basic"
+          label="Film..."
+          variant="outlined"
+          size="small"
+          name="search"
+          value={searchParams.get('name') || ''}
+          onChange={onChange}
+        />
+        <Submit type="submit" variant="contained">
+          Contained
+        </Submit>
+      </Form>
 
       <FilmsList films={films} />
     </div>

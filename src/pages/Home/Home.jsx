@@ -1,6 +1,7 @@
 import { getTrends } from 'fetchAPI';
 import { useState, useEffect } from 'react';
 import { FilmsList } from 'components/FilmsList/FilmsList';
+import { Trends } from './Home.styled';
 
 export const Home = () => {
   const [films, setFilms] = useState([]);
@@ -12,5 +13,10 @@ export const Home = () => {
     getFilms();
   }, []);
 
-  return <FilmsList films={films} />;
+  return (
+    <>
+      <Trends>Trends:</Trends>
+      <FilmsList films={films} />
+    </>
+  );
 };
