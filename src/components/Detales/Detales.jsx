@@ -22,9 +22,11 @@ export const Detales = ({ data }) => {
     const genresName = genres.map(genre => genre.name);
     return genresName.join(', ');
   };
+
+  const comeBack = location.state.from || '/';
   return (
     <div>
-      <GoBack to={location.state.from}>Go back</GoBack>
+      <GoBack to={comeBack}>Go back</GoBack>
       <DetalesConrainer>
         <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt="" />
         <div>
@@ -41,12 +43,12 @@ export const Detales = ({ data }) => {
       </DetalesConrainer>
       <ul>
         <li>
-          <Link to="cast" state={{ from: location }}>
+          <Link to="cast" state={{ from: comeBack }}>
             link to cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: location }}>
+          <Link to="reviews" state={{ from: comeBack }}>
             link to reviews
           </Link>
         </li>
