@@ -41,12 +41,12 @@ export const Detales = ({ data }) => {
       </DetalesConrainer>
       <ul>
         <li>
-          <Link to="cast" state={{ from: '/movies' }}>
+          <Link to="cast" state={{ from: location }}>
             link to cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: '/movies' }}>
+          <Link to="reviews" state={{ from: location }}>
             link to reviews
           </Link>
         </li>
