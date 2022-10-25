@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { FilmsList } from 'components/FilmsList/FilmsList';
 import { Trends } from './Home.styled';
 
-export const Home = () => {
+const Home = () => {
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
@@ -20,3 +20,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

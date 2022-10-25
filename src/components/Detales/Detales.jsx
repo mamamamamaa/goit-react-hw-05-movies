@@ -1,4 +1,8 @@
+import PropTypes from 'prop-types';
+import { Suspense } from 'react';
+import { Trends } from 'pages/Home/Home.styled';
 import { useLocation, Outlet } from 'react-router-dom';
+
 import {
   DetalesConrainer,
   GoBack,
@@ -10,6 +14,7 @@ import {
   ExtraDataItem,
   ExtraDataLink,
 } from './Detales.styled';
+
 import { BsArrow90DegLeft } from 'react-icons/bs';
 
 export const Detales = ({ data }) => {
@@ -66,7 +71,25 @@ export const Detales = ({ data }) => {
           </ExtraDataLink>
         </ExtraDataItem>
       </ExtraDataList>
-      <Outlet />
+      <Suspense fallback={<Trends>Loading...</Trends>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
+};
+
+Detales.propTypes = {
+  data: PropTypes.shape({
+    poster_path: PropTypes.string.isRequired,
+    original_title: PropTypes.string,
+    original_name: PropTypes.string,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      }).isRequired
+    ).isRequired,
+  }).isRequired,
 };

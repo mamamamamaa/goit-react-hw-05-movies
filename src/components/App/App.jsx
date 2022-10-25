@@ -1,12 +1,18 @@
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Home } from '../../pages/Home/Home';
-import { Movies } from '../../pages/Movies/Movies';
-import { MovieDetails } from '../../pages/MovieDetails/MovieDetails';
-import { Cast } from '../Cast/Cast';
-import { Reviewers } from '../Reviewers/Reviewers';
+// import Home from '../../pages/Home/Home';
+// import Movies from 'pages/Movies/Movies';
+// import MovieDetails from 'pages/MovieDetails/MovieDetails';
+import { Cast } from 'components/Cast/Cast';
+import { Reviewers } from 'components/Reviewers/Reviewers';
 import { MdOutlineLocalMovies } from 'react-icons/md';
 import { NavList, AppCont, NavCont, StyledLink, LogoCont } from './App.styled';
 
+const Home = lazy(() => import('../../pages/Home/Home'));
+const Movies = lazy(() => import('../../pages/Movies/Movies'));
+const MovieDetails = lazy(() =>
+  import('../../pages/MovieDetails/MovieDetails')
+);
 export const App = () => {
   return (
     <AppCont>
@@ -23,7 +29,7 @@ export const App = () => {
       </NavCont>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="*" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MovieDetails />}>

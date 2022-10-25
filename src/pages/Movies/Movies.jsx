@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Form, Input, Submit } from './Movies.styled';
 
-export const Movies = () => {
+const Movies = () => {
   const [query, setQuery] = useState();
   const [films, setFilms] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -40,13 +40,6 @@ export const Movies = () => {
   return (
     <div>
       <Form onSubmit={onSubmit}>
-        {/* <input
-          type="text"
-          value={searchParams.get('name') || ''}
-          name="search"
-          onChange={onChange}
-        />
-        <button>Search</button> */}
         <Input
           id="outlined-basic"
           label="Film..."
@@ -65,3 +58,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default Movies;

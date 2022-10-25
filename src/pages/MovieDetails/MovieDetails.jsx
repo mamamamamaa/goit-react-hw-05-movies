@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
 import { getMovieDetails } from 'fetchAPI';
 import { Detales } from 'components/Detales/Detales';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [detales, setDetales] = useState({});
   const { id } = useParams();
 
@@ -14,3 +15,5 @@ export const MovieDetails = () => {
 
   return Object.keys(detales).length !== 0 && <Detales data={detales} />;
 };
+
+export default MovieDetails;
