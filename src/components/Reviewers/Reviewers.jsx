@@ -3,7 +3,7 @@ import { getMovieReviews } from 'fetchAPI';
 import { useParams } from 'react-router-dom';
 import { ReviewersList, Reviewer } from './Reviewers.styled';
 
-export const Reviewers = () => {
+const Reviewers = () => {
   const [reviewers, setReviewers] = useState({});
   const { id } = useParams();
 
@@ -30,3 +30,5 @@ export const Reviewers = () => {
     </>
   );
 };
+
+export default Reviewers;

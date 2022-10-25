@@ -6,7 +6,7 @@ import { CastList, CastItem, CastImg } from './Cast.styled';
 const defaultImg =
   'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState({});
   const { id } = useParams();
 
@@ -35,3 +35,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;
