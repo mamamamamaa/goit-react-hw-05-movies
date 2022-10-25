@@ -39,10 +39,10 @@ export const Detales = ({ data }) => {
     return genresName.join(', ');
   };
 
-  const comeBack = location.state.from || '/';
+  const cameBack = location.state?.from ?? '/';
   return (
     <div>
-      <GoBack to={comeBack}>
+      <GoBack to={cameBack}>
         <BsArrow90DegLeft size={15} color={'gray'} /> Go back
       </GoBack>
       <DetalesConrainer>
@@ -61,12 +61,12 @@ export const Detales = ({ data }) => {
       </DetalesConrainer>
       <ExtraDataList>
         <ExtraDataItem>
-          <ExtraDataLink to="cast" state={{ from: comeBack }}>
+          <ExtraDataLink to="cast" state={{ from: cameBack }}>
             Cast
           </ExtraDataLink>
         </ExtraDataItem>
         <ExtraDataItem>
-          <ExtraDataLink to="reviews" state={{ from: comeBack }}>
+          <ExtraDataLink to="reviews" state={{ from: cameBack }}>
             Reviews
           </ExtraDataLink>
         </ExtraDataItem>
