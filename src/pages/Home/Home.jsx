@@ -1,5 +1,5 @@
-import { getTrends } from 'fetchAPI';
 import { useState, useEffect } from 'react';
+import { getTrends } from 'fetchAPI';
 import { FilmsList } from 'components/FilmsList/FilmsList';
 import { Trends } from './Home.styled';
 
